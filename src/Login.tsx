@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import styled from "styled-components";
 
 const Container = styled.section`
@@ -12,7 +13,7 @@ const LoginForm = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: rgba(0, 0, 0, 0.05);
   padding: 100px;
   border-radius: 10px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
@@ -48,13 +49,32 @@ const LoginButton = styled.button`
   text-transform: uppercase;
 `;
 
-const Login = () => {
+interface IProps {
+  getUserName: Function;
+}
+
+const Login: React.FunctionComponent<IProps> = ({ getUserName }) => {
+  const [user, setUser] = useState("");
+
+  const handleLoginForm = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    localStorage.setItem("username", user);
+    getUserName(user);
+  };
+
+  const handleLoginInput = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setUser(event.currentTarget.value);
+  };
+
   return (
     <>
       <Container>
-        <LoginForm>
+        <LoginForm onSubmit={handleLoginForm}>
           <Title>하루의 시작</Title>
-          <LoginInput placeholder="Enter your name" />
+          <LoginInput
+            onChange={handleLoginInput}
+            placeholder="Enter your name"
+          />
           <LoginButton>Log In</LoginButton>
         </LoginForm>
       </Container>

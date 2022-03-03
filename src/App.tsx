@@ -61,11 +61,17 @@ a {
 `;
 
 const App = () => {
-  const [user, setUser] = useState("");
+  const localUserName = localStorage.getItem("username");
+  const [user, setUser] = useState(localUserName ? localUserName : "");
+
+  const getUserName = (userName: string) => {
+    setUser(userName);
+  };
+
   return (
     <>
       <GlobalStyle />
-      {user ? <Home /> : <Login />}
+      {user ? <Home /> : <Login getUserName={getUserName} />}
     </>
   );
 };
