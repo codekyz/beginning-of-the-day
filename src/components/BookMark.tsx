@@ -145,8 +145,9 @@ const BookMark = () => {
         {items.map((item) => {
           return (
             <Item key={item.id}>
+              <span>📁</span>
               <a href={item.url} target="_blank">
-                📁 {item.name}
+                <span>{item.name}</span>
               </a>
               <button onClick={handleBookMarkDelete}>{"X"}</button>
             </Item>
