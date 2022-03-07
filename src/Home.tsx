@@ -4,6 +4,7 @@ import TodoList from "./components/TodoList";
 import Clock from "./components/Clock";
 import Weather from "./components/Weather";
 import BookMark from "./components/BookMark";
+import Quote from "./components/Quote";
 
 const Container = styled.section`
   height: 100vh;
@@ -46,11 +47,6 @@ const Grid = styled.div`
   }
 `;
 
-const Quote = styled.div`
-  grid-column: 1/3;
-  grid-row: 3;
-`;
-
 const Home = () => {
   const userName = localStorage.getItem("username");
   return (
@@ -70,7 +66,7 @@ const Home = () => {
             <Clock />
             <Weather />
             <BookMark />
-            <Quote>Quote</Quote>
+            <Quote />
           </Grid>
         </Contents>
       </Container>
