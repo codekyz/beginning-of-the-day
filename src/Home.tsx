@@ -2,6 +2,7 @@ import styled from "styled-components";
 import Calendar from "./components/Calendar";
 import TodoList from "./components/TodoList";
 import Clock from "./components/Clock";
+import Weather from "./components/weather";
 
 const Container = styled.section`
   height: 100vh;
@@ -41,10 +42,6 @@ const Grid = styled.div`
   grid-gap: 15px;
 `;
 
-const Weather = styled.div`
-  grid-row: 2;
-`;
-
 const BookMark = styled.div`
   grid-row: 2;
 `;
@@ -71,7 +68,7 @@ const Home = () => {
           <TodoList />
           <Grid>
             <Clock />
-            <Weather>Weather</Weather>
+            <Weather />
             <BookMark>BookMark</BookMark>
             <Quote>Quote</Quote>
           </Grid>
