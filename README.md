@@ -1,46 +1,19 @@
-# Getting Started with Create React App
+# 하루의 시작
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![](./public/og_img.PNG)
 
-## Available Scripts
+## 개요
 
-In the project directory, you can run:
+`React` `TypeScript` `styled-components` `localstorage` `Weather API` `Random Quete API`
 
-### `npm start`
+- 크롬 앱 'Momentum'에서 영감을 받아 제작한 하루의 시작을 함께 할 수 있는 페이지
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## 기능
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+- username을 입력하여 로그인을 합니다.
+- 추가/삭제/상태변경이 가능한 ToDoList를 제공합니다.
+- 오늘 날짜와 현재 시각을 초단위로 제공합니다.
+- API를 이용하여 현재 위치와 날씨, 온도를 제공합니다.
+- 추가/삭제가 가능한 Bookmark를 제공합니다.
+- API를 이용하여 랜덤하게 명언을 제공합니다.
+- 가로 최대 크기가 1000px 이하 일때 세로모드를 제공합니다.
