@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Home from "./Home";
 import Login from "./Login";
-import styled, { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
 html, body, div, span, applet, object, iframe,
@@ -35,6 +35,7 @@ footer, header, hgroup, main, menu, nav, section {
 }
 body {
   line-height: 1;
+  background-color: ${(props) => props.theme.bgColor};
 }
 menu, ol, ul {
   list-style: none;
