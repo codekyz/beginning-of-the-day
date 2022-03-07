@@ -49,7 +49,7 @@ const List = styled.ul`
   flex-direction: column;
 `;
 
-const Item = styled.li`
+const Item = styled.li<{ isComplete: boolean }>`
   width: 25vh;
   display: flex;
   align-items: center;
@@ -59,6 +59,11 @@ const Item = styled.li`
     background-color: transparent;
     font-size: 20px;
     cursor: pointer;
+  }
+  span {
+    text-decoration-line: ${(props) =>
+      props.isComplete ? "line-through" : "none"};
+    color: ${(props) => (props.isComplete ? "rgba(0,0,0,0.5)" : "none")};
   }
   button:last-child {
     background-color: transparent;
@@ -116,11 +121,19 @@ const TodoList: React.FunctionComponent = () => {
   const handleTodoInput = (event: React.ChangeEvent<HTMLInputElement>) => {
     setValue(event.currentTarget.value);
   };
-  const handleTodoButton = (event: React.MouseEvent<HTMLButtonElement>) => {};
+  const handleTodoButton = (event: React.MouseEvent<HTMLButtonElement>) => {
+    const target = event.currentTarget.nextSibling?.textContent;
+    const newItems = items.map((item) =>
+      target === item.todo
+        ? { id: item.id, todo: item.todo, complete: !item.complete }
+        : item
+    );
+    setItems(newItems);
+  };
 
   const handleTodoDelete = (event: React.MouseEvent<HTMLButtonElement>) => {
-    console.log(event.currentTarget.previousSibling?.textContent);
-    // filter 사용
+    const target = event.currentTarget.previousSibling?.textContent;
+    setItems(items.filter((item) => target !== item.todo));
   };
   return (
     <TodoListComponent>
@@ -135,13 +148,13 @@ const TodoList: React.FunctionComponent = () => {
         <Button type="submit">추가</Button>
       </TodoForm>
       <List>
-        {items.map((v) => {
+        {items.map((item) => {
           return (
-            <Item key={v.id}>
+            <Item isComplete={item.complete} key={item.id}>
               <button onClick={handleTodoButton}>
-                {v.complete ? "■" : "□"}
+                {item.complete ? "■" : "□"}
               </button>
-              <span>{v.todo}</span>
+              <span>{item.todo}</span>
               <button onClick={handleTodoDelete}>{"X"}</button>
             </Item>
           );
