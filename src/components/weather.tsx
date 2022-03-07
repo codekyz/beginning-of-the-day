@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 const WeatherComponent = styled.div`
   height: 40vh;
+  padding: 0 16px;
   grid-row: 2;
   text-align: center;
   display: flex;
@@ -11,6 +12,9 @@ const WeatherComponent = styled.div`
   p {
     font-size: 24px;
     font-weight: 800;
+    padding-bottom: 20px;
+    border-bottom: 1px solid ${(props) => props.theme.textColor};
+    text-transform: uppercase;
   }
 `;
 
@@ -36,11 +40,12 @@ const Weather = () => {
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(geoOk, geoError);
-  }, []);
+  }, [lat, lon]);
 
   const API_KEY = "62b3e567d906a1b5db72f422643c9ff5";
 
-  const apiCall = async (url: string) => {
+  const apiCall = async (lat: number, lon: number) => {
+    const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric`;
     const json = await (await fetch(url)).json();
     setCity(json.name);
     setWeather(json.weather[0].main);
@@ -50,8 +55,9 @@ const Weather = () => {
   const geoOk = (position: IPosition) => {
     setLat(position.coords.latitude);
     setLon(position.coords.longitude);
-    const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric`;
-    apiCall(url);
+    if (lat !== 0 && lon !== 0) {
+      apiCall(lat, lon);
+    }
   };
 
   const geoError = () => {

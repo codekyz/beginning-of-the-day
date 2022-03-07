@@ -2,7 +2,8 @@ import styled from "styled-components";
 import Calendar from "./components/Calendar";
 import TodoList from "./components/TodoList";
 import Clock from "./components/Clock";
-import Weather from "./components/weather";
+import Weather from "./components/Weather";
+import BookMark from "./components/BookMark";
 
 const Container = styled.section`
   height: 100vh;
@@ -14,7 +15,7 @@ const Greeting = styled.div`
   padding: 50px;
   display: flex;
   justify-content: space-between;
-  @media screen and (max-width: 650px) {
+  @media screen and (max-width: 1000px) {
     padding: 30px;
     flex-direction: column;
   }
@@ -30,7 +31,7 @@ const Contents = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  @media screen and (max-width: 650px) {
+  @media screen and (max-width: 1000px) {
     flex-direction: column;
   }
 `;
@@ -40,10 +41,9 @@ const Grid = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 15px;
-`;
-
-const BookMark = styled.div`
-  grid-row: 2;
+  @media screen and (max-width: 1000px) {
+    width: 80vw;
+  }
 `;
 
 const Quote = styled.div`
@@ -69,7 +69,7 @@ const Home = () => {
           <Grid>
             <Clock />
             <Weather />
-            <BookMark>BookMark</BookMark>
+            <BookMark />
             <Quote>Quote</Quote>
           </Grid>
         </Contents>

@@ -10,8 +10,9 @@ const TodoListComponent = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  @media screen and (max-width: 650px) {
+  @media screen and (max-width: 1000px) {
     width: 80vw;
+    height: 100%;
   }
 `;
 

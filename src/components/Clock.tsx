@@ -9,7 +9,7 @@ const ClockComponent = styled.div`
   span {
     font-size: 70px;
   }
-  @media screen and (max-width: 650px) {
+  @media screen and (max-width: 1000px) {
     margin-top: 30px;
     span {
       font-size: 50px;
