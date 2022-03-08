@@ -27,6 +27,17 @@ const Title = styled.h1`
   line-height: 35px;
 `;
 
+const Button = styled.button`
+  position: relative;
+  right: -5px;
+  bottom: 5px;
+  border: none;
+  background-color: ${(props) => props.theme.accentColor};
+  padding: 5px;
+  color: ${(props) => props.theme.bgColor};
+  cursor: pointer;
+`;
+
 const Contents = styled.div`
   padding: 0px 30px;
   display: flex;
@@ -47,8 +58,17 @@ const Grid = styled.div`
   }
 `;
 
-const Home = () => {
+interface IProps {
+  getUserName: (userName: string) => void;
+}
+
+const Home = ({ getUserName }: IProps) => {
   const userName = localStorage.getItem("username");
+
+  const handleLogOutButton = () => {
+    localStorage.removeItem("username");
+    getUserName("");
+  };
   return (
     <>
       <Container>
@@ -57,6 +77,7 @@ const Home = () => {
             환영합니다. {userName}님
             <br />
             하루의 시작입니다.
+            <Button onClick={handleLogOutButton}>LogOut</Button>
           </Title>
           <Calendar />
         </Greeting>

@@ -50,10 +50,10 @@ const LoginButton = styled.button`
 `;
 
 interface IProps {
-  getUserName: Function;
+  getUserName: (userName: string) => void;
 }
 
-const Login: React.FunctionComponent<IProps> = ({ getUserName }) => {
+const Login = ({ getUserName }: IProps) => {
   const [user, setUser] = useState("");
 
   const handleLoginForm = (event: React.FormEvent<HTMLFormElement>) => {

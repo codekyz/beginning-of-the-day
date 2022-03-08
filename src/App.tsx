@@ -72,7 +72,11 @@ const App = () => {
   return (
     <>
       <GlobalStyle />
-      {user ? <Home /> : <Login getUserName={getUserName} />}
+      {user ? (
+        <Home getUserName={getUserName} />
+      ) : (
+        <Login getUserName={getUserName} />
+      )}
     </>
   );
 };
