@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.js": "/beginning-of-the-day/static/js/main.cc5babb8.js",
+    "main.js": "/beginning-of-the-day/static/js/main.289fa049.js",
     "index.html": "/beginning-of-the-day/index.html",
-    "main.cc5babb8.js.map": "/beginning-of-the-day/static/js/main.cc5babb8.js.map"
+    "main.289fa049.js.map": "/beginning-of-the-day/static/js/main.289fa049.js.map"
   },
   "entrypoints": [
-    "static/js/main.cc5babb8.js"
+    "static/js/main.289fa049.js"
   ]
 }
